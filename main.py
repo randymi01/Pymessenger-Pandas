@@ -6,15 +6,13 @@ import require
 import smtplib, ssl, os
 import sys
 import fullscreen
-import re
-import pandas as pd
 import regex
 
 sys.path.append(os.getcwd() + '\\Contacts')
 
 os.chdir(os.getcwd() + "/Contacts")
 
-import process_contacts
+from process_contacts import *
 
 
 try:
@@ -87,14 +85,15 @@ class MultipleContactsError(Error):
     pass
 
 searching=True
-contacts = pd.read_csv("formatted_contacts.csv")
+
+# number = ["phonenumber, name"]
 
 while searching:
     try:
         querry = input('\nWho would you like to text?: ')
 
         #returns a list of possible names
-        possible_contacts = regex.search(querry,list(contacts["fullname"]))
+        possible_contacts = regex.search(querry,import_contacts)
 
         print('\nSearching...')
         if possible_contacts == "no contacts":
@@ -106,9 +105,13 @@ while searching:
     except ContactNotFoundError:
         addname=input('\nContact not found! \nWould you like to add a name to your Contacts?\n[y] or [n]: ')
         if addname == 'y':
-            name=str(input('Name of new contact: '))
+
+            f_name=str(input('First Name of new contact: '))
+            l_name=str(input('Last Name of new contact: '))
             pnum=str(input('Number of new contact: '))
-            contacts = process_contacts.addcontact(name,pnum, contacts)
+
+            contacts_contents = [l_name, f_name, pnum, f_name + ' ' + l_name]
+            add_contact(contacts_contents)
         else:
             continue
 
@@ -118,20 +121,20 @@ while searching:
         if choice<=0:
             continue
         if choice !=0:
-            number=[contacts.at[list(contacts["fullname"]).index(possible_contacts[choice-1]),"Phone Number"], possible_contacts[choice-1]]
+            number=[import_phonenumbers[import_contacts.index(possible_contacts[choice-1])], possible_contacts[choice-1]]
             searching=False
     else:
-        bs=True
-        while bs:
+        badinput = True
+        while badinput:
             confirmation=input('Are you sure you want to text: {} at {}? (y/n): '.format(possible_contacts[0], contacts.at[list(contacts["fullname"]).index(possible_contacts[0]),"Phone Number"]))
             if confirmation in ['y','n']:
-                bs=False
+                badinput = False
             else:
                 print('\nPlease enter a valid character ("y" or "n")')
         if confirmation=='n':
             continue
         if confirmation=='y':
-            number=[contacts.at[list(contacts["fullname"]).index(possible_contacts[0]),"Phone Number"], possible_contacts[0]]
+            number=[import_phonenumbers[import_contacts.index(possible_contacts[0])], possible_contacts[0]]
             searching = False;
 
 not_confirmed=True
@@ -173,12 +176,16 @@ while badinput:
 
 if multi == 'y':
     times = int(input("How many times do you want it to send?: "))
+    carrier_question = int(input("Which carrier: att, tmobile, vtext, sprint [1-4, zero for unknown]: "))
 else:
     times = 1
 
 phonenumber=str(number[0])
 carriers=['@text.att.net','@tmobile.net','@vtext.com','@messaging.sprintpcs.com']
 
+if(carrier_question >= 1):
+    carriers = [carriers[carrier_question-1]]
+    
 for i in range(times):
     for carrier in carriers:
         try:
