@@ -6,11 +6,6 @@ import smtplib, ssl, os
 import sys
 from email.mime.text import MIMEText
 
-
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-print(os.getcwd())
-
 # Account Details
 sender = "pymessengerbot@gmail.com"
 password = "dwyzgykmzroygpip"
