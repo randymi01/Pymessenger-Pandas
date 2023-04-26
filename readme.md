@@ -7,21 +7,14 @@ that supports sending text messages via gmail smtp server. More feautres will co
 <br>
 
 <b>Usage Instructions:</b>
-1. Allow less secure app access on google account: https://support.google.com/accounts/answer/6010255?hl=en
-2. Fill in gmail account details on <b>lines 26-27 and 74-75</b>
-3. Change contents of contacts.csv located in Contacts folder
+Add login details to config.json
+Guide: https://stackoverflow.com/questions/72478573/how-to-send-an-email-using-python-after-googles-policy-update-on-not-allowing-j
 
 <br>
 
 <b>Commandline Usage</b>
 ```
-py main.py phonenumber message
+pymessenger phonenumber message subject(opt) carrier(opt)
 ```
 
-<br>
-
-<b>Planned Features</b>
-<li>Multiple Text Messages: DONE</li>
-<li>Timed Messages: PENDING</li>
-<li>Receive Responses: PENDING</li>
   
