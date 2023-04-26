@@ -4,15 +4,17 @@
 
 import smtplib, ssl, os
 import sys
-import json
 from email.mime.text import MIMEText
 
 
-#your gmail account with less secure app access
-config = json.load(open('config.json'))
-sender = config["sender"]
-password = config["password"]
-smtp_server = config["smtpserver"]
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+print(os.getcwd())
+
+# Account Details
+sender = "pymessengerbot@gmail.com"
+password = "dwyzgykmzroygpip"
+smtp_server = "smtp.gmail.com"
 
 
 def send_message(phone_number:str, message:str, subject = "",carrier = None, port = 587):
