@@ -1,14 +1,7 @@
-# Pymessenger:
+# pymessage:
 
-<b>Pymessenger Introduction:</b>
-Have you ever wanted to text someone in python? Pymessenger is a lightweight commandline ssl messenger
-that supports sending text messages via gmail smtp server. More feautres will come soon.
-
-<br>
-
-<b>Usage Instructions:</b>
-Add login details to config.json
-Guide: https://stackoverflow.com/questions/72478573/how-to-send-an-email-using-python-after-googles-policy-update-on-not-allowing-j
+<b>Pymessage Introduction:</b>
+Simple python commandline texting
 
 <br>
 
@@ -16,5 +9,8 @@ Guide: https://stackoverflow.com/questions/72478573/how-to-send-an-email-using-p
 ```
 pymessenger phonenumber message subject(opt) carrier(opt)
 ```
-
+<br>
+<b>Additional Usage Instructions:</b>
+(optional) Add login details to config.json
+Guide: https://stackoverflow.com/questions/72478573/how-to-send-an-email-using-python-after-googles-policy-update-on-not-allowing-j
   
