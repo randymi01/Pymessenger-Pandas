@@ -22,7 +22,7 @@ except:
 
 #your gmail account with less secure app access
 sender = "pymessengerbot@gmail.com"
-password = '}5ZB\/8fCa>tB*A"'
+password = 'dwyzgykmzroygpip'
 smtp_server = 'smtp.gmail.com'
 
 #Requires sys.argv = [program name, phone number, message]
@@ -173,6 +173,8 @@ while badinput:
         badinput=False
     else:
         print('\nPlease enter a valid character ("y" or "n")')
+
+carrier_question = 0
 
 if multi == 'y':
     times = int(input("How many times do you want it to send?: "))
