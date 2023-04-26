@@ -7,7 +7,7 @@ Simple python commandline texting
 
 <b>Commandline Usage</b>
 ```
-pymessenger phonenumber message subject(opt) carrier(opt)
+pymessage phonenumber message subject(opt) carrier(opt)
 ```
 <br>
 <b>Additional Usage Instructions:</b>
