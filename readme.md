@@ -1,11 +1,9 @@
 # pymessage:
-
-<b>Pymessage Introduction:</b>
 Simple python commandline texting
 
 <br>
 
-<b>Commandline Usage</b>
+<b>Command Line Usage</b>
 ```
 pymessage phonenumber message subject(opt) carrier(opt)
 ```
