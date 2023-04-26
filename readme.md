@@ -1,6 +1,4 @@
 # pymessage:
-
-<b>Pymessage Introduction:</b>
 Simple python commandline texting
 
 <br>
